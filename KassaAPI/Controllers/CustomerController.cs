@@ -36,9 +36,20 @@ namespace KassaAPI.Controllers
 
         // GET: api/Customer/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public object Get(int id)
         {
-            return "value";
+            //login
+            IOpenErpLogin rpcClientLogin = XmlRpcProxyGen.Create<IOpenErpLogin>();
+            rpcClientLogin.NonStandard = XmlRpcNonStandard.AllowStringFaultCode;
+            int userid = rpcClientLogin.login("ErrasmusHB", "anthony.moortgat@student.ehb.be", "kassa");
+
+            //search a customer
+            IOpenErpAddFields rpcField = XmlRpcProxyGen.Create<IOpenErpAddFields>();
+            object[] filter = new object[1];
+            filter[0] = new object[3] { "model", "=", "res.partner" };
+            int[] model = rpcField.search("ErrasmusHB", userid, "kassa", "ir.model", "search", filter);
+            return model;
+
         }
 
         // POST: api/Customer
