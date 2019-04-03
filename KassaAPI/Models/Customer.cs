@@ -5,18 +5,18 @@ using System.Threading.Tasks;
 
 namespace KassaAPI.Models
 {
-    public class Employee
+    public class Customer
     {
         public string Name { get; set; }
         public string Email { get; set; }
-        public string UUID { get; set; }
-        public int Timestamp { get; set; }
+        public string Uuid { get; set; }
+        public int  Timestamp { get; set; }
         public int Version { get; set; }
 
-        public Employee(string Name, string Email, string UUID, int Timestamp, int Version) {
+        public Customer(string Name, string Email, string Uuid, int Timestamp, int Version) {
             this.Name = Name;
-            this.Email = Email;
-            this.UUID = UUID;
+            this.Email = Name;
+            this.Uuid = Uuid;
             this.Timestamp = Timestamp;
             this.Version = Version;
         }
