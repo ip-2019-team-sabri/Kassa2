@@ -26,14 +26,6 @@ namespace KassaAPI.Controllers
             rpcClientLogin.NonStandard = XmlRpcNonStandard.AllowStringFaultCode;
             int userid = rpcClientLogin.login("ErrasmusHB", "anthony.moortgat@student.ehb.be", "kassa");
 
-            //if (userid > 0)
-            //{
-            //   return "login succesful";
-            //}
-            //else
-            //{
-            //    return "fout";
-            //}
 
             //search a customer
             IOpenErpAddFields rpcField = XmlRpcProxyGen.Create<IOpenErpAddFields>();
@@ -41,19 +33,7 @@ namespace KassaAPI.Controllers
             filter[0] = new object[3] { "customer", "=", "true" };
             XmlRpcStruct[] customer = rpcField.Searchread("ErrasmusHB", userid, "kassa", "res.partner", "search_read", filter);
 
-            //List<Customer> customers = new List<Customer>();
 
-            //foreach (var res in customer)
-            //{
-            //   string test = JsonConvert.SerializeObject(res);
-            //  JObject jo = JObject.Parse(test);
-
-            // Customer tempCustomer = new Customer(jo["Name"].ToString(), jo["Email"].ToString(), jo["UUID"].ToString(),
-            //    Int32.Parse(jo["x_timestamp"].ToString()), Int32.Parse(jo["x_version"].ToString()));
-            //customers.Add(tempCustomer);
-            //}
-
-            //return JsonConvert.SerializeObject(customers);
             return "s";
         }
 

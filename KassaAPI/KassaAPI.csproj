@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="RabbitMQ\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
