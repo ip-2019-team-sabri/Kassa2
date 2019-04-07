@@ -19,7 +19,7 @@ namespace KassaAPI.Interface
         [XmlRpcMethod("execute")]
         int[] search(string dbName, int userId, string dbPwd, string model, string method, object[] filter);
 
-        [XmlRpcMethod("execture")]
+        [XmlRpcMethod("execute")]
         XmlRpcStruct[] Searchread(string dbName, int userId, string dbPwd, string model, string method, object[] filter);
     }
 }
