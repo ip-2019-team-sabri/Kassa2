@@ -14,12 +14,12 @@ namespace KassaAPI.Dto
         public string Email { get; set; }
         public string Barcode { get; set; }
         public string Vat { get; set; }
-        public string X_actief { get; set; }
-        public string X_geblokkeerd { get; set; }
-        public int Timestamp { get; set; }
-        public int X_version { get; set; }
+        public bool X_actief { get; set; }
+        public bool X_geblokkeerd { get; set; }
+        public DateTime Timestamp { get; set; }
+        public string X_version { get; set; }
 
-        public DtoCustomer(string x_uuid, string x_kaartUuid, string x_addressUuid, string name, string email, string barcode, string vat, string x_actief, string x_geblokkeerd, int timestamp, int x_version)
+        public DtoCustomer(string x_uuid, string x_kaartUuid, string x_addressUuid, string name, string email, string barcode, string vat, bool x_actief, bool x_geblokkeerd, DateTime timestamp, string x_version)
         {
             X_uuid = x_uuid;
             X_kaartUuid = x_kaartUuid;

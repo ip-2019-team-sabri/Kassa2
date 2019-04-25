@@ -3,6 +3,7 @@ using MessageBroker.Messages;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using KassaAPI.Dto;
 
 namespace RabbitMQ
 {
@@ -20,6 +21,21 @@ namespace RabbitMQ
 
         public void HandleBezoekerMessage(BezoekerMessage bezoekerMessage)
         {
+            DtoCustomer dtoCustomer = new DtoCustomer(
+                bezoekerMessage.body.bezoekerUUID.ToString(),
+                bezoekerMessage.body.kaartUUID.ToString(),
+                bezoekerMessage.body.adres.ToString(),
+                /*Voornaam en achternam*/"Anthony Moortgat",
+                bezoekerMessage.body.email.ToString(),
+                /*Barcode*/"ABC-abc-1234",
+                bezoekerMessage.body.btwnummer.ToString(),
+                bezoekerMessage.body.isActief,
+                bezoekerMessage.body.isGeblokkeerd,
+                bezoekerMessage.header.timestamp,
+                bezoekerMessage.header.versie
+                ); 
+
+            // Call API function en stuur object door
             throw new NotImplementedException();
         }
 
@@ -30,12 +46,13 @@ namespace RabbitMQ
 
         public void HandleErrorMessage(ErrorMessage errorMessage)
         {
-            throw new NotImplementedException();
+            // Enkel voor monitoring ?
         }
 
         public void HandleEventMessage(EventMessage eventMessage)
         {
-            throw new NotImplementedException();
+            // todo
+            // throw new NotImplementedException();
         }
 
         public void HandleFactuurMessage(FactuurMessage factuurMessage)
@@ -75,7 +92,8 @@ namespace RabbitMQ
 
         public void HandleOrganisatieMessage(OrganisatieMessage organisatieMessage)
         {
-            throw new NotImplementedException();
+            // todo
+            // throw new NotImplementedException();
         }
 
         public void HandlePingMessage(PingMessage pingMessage)
@@ -95,7 +113,8 @@ namespace RabbitMQ
 
         public void HandleSessieMessage(SessieMessage sessieMessage)
         {
-            throw new NotImplementedException();
+            // todo: Een sessie als product maken
+            // throw new NotImplementedException();
         }
 
         public void HandleTaakMessage(TaakMessage taakMessage)
@@ -115,7 +134,9 @@ namespace RabbitMQ
 
         public void HandleWerknemerMessage(WerknemerMessage werknemerMessage)
         {
-            throw new NotImplementedException();
+            // Werknemer is een gewoone user maar met bool werknemer op true
+            // todo: Dto van partner
+            // throw new NotImplementedException();
         }
     }
 }
