@@ -57,17 +57,20 @@ namespace RabbitMQ
 
         public void HandleFactuurMessage(FactuurMessage factuurMessage)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+
+            //niet doen
         }
 
         public void HandleGroepRegistratieMessage(GroepRegistratieMessage groepResgistratieMessage)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public void HandleInschrijvingsMessage(InschrijvingsMessage inschrijvingsMessage)
         {
             throw new NotImplementedException();
+            // todo
         }
 
         public void HandleKalenderMessage(KalenderMessage kalenderMessage)
@@ -82,12 +85,14 @@ namespace RabbitMQ
 
         public void HandleLocatieMessage(LocatieMessage locatiemessage)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void HandleOplaadMessage(OplaadMessage oplaadMessage)
         {
+           
             throw new NotImplementedException();
+            // todo
         }
 
         public void HandleOrganisatieMessage(OrganisatieMessage organisatieMessage)
